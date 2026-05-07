@@ -86,169 +86,201 @@ const integrations = [
       })();
     </script>
 
-    <!-- ── NAV ─────────────────────────────────────────────── -->
-    <header class="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
-      <div class="mx-auto flex h-14 max-w-6xl items-center gap-6 px-4">
-        <a href={base + "/"} class="flex items-center gap-2 font-semibold text-sm">
-          <span class="text-base">⬡</span>
+    <!-- ── NAV ── -->
+    <header class="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
+      <div class="mx-auto flex h-14 max-w-6xl items-center gap-6 px-5">
+        <a href={base + "/"} class="flex items-center gap-2 font-semibold text-sm shrink-0">
+          <span class="text-base leading-none">⬡</span>
           <span>OpenRisk</span>
         </a>
-        <nav class="hidden sm:flex items-center gap-1 text-sm">
-          <a href="#problem" class="px-3 py-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors">Problem</a>
-          <a href="#data-model" class="px-3 py-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors">Data Model</a>
-          <a href="#plugins" class="px-3 py-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors">Plugins</a>
-          <a href="#integrations" class="px-3 py-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors">Integrations</a>
-          <a href="#ecosystem" class="px-3 py-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors">Ecosystem</a>
+        <nav class="hidden md:flex items-center gap-0.5 text-sm">
+          <a href="#features"      class="px-3 py-1.5 rounded-md text-muted-foreground hover:text-foreground transition-colors">Features</a>
+          <a href="#how-it-works"  class="px-3 py-1.5 rounded-md text-muted-foreground hover:text-foreground transition-colors">How it works</a>
+          <a href="#integrations"  class="px-3 py-1.5 rounded-md text-muted-foreground hover:text-foreground transition-colors">Integrations</a>
+          <a href="#developers"    class="px-3 py-1.5 rounded-md text-muted-foreground hover:text-foreground transition-colors">Developers</a>
         </nav>
-        <div class="ml-auto flex items-center gap-3 text-xs text-muted-foreground">
-          <a href={DISCOVERY_URL} target="_blank" rel="noreferrer" class="hover:text-foreground transition-colors hidden sm:inline">Plugins ↗</a>
-          <a href={SDK_URL} target="_blank" rel="noreferrer" class="hover:text-foreground transition-colors hidden sm:inline">SDK ↗</a>
-          <a href={APP_GITHUB_URL} target="_blank" rel="noreferrer" class="hover:text-foreground transition-colors">GitHub ↗</a>
-          <button id="theme-toggle" aria-label="Toggle dark mode" class="rounded-md p-1.5 hover:bg-accent/50 transition-colors">
-            <span id="theme-icon">☾</span>
+        <div class="ml-auto flex items-center gap-1">
+          <a href={DISCOVERY_URL} target="_blank" rel="noreferrer"
+             class="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-md text-xs text-muted-foreground hover:text-foreground hover:bg-accent/60 transition-colors">
+            Plugins
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg>
+          </a>
+          <a href={SDK_URL} target="_blank" rel="noreferrer"
+             class="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-md text-xs text-muted-foreground hover:text-foreground hover:bg-accent/60 transition-colors">
+            SDK
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg>
+          </a>
+          <a href={APP_GITHUB_URL} target="_blank" rel="noreferrer"
+             class="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium bg-primary text-primary-foreground hover:opacity-90 transition-opacity ml-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <button id="theme-toggle" aria-label="Toggle dark mode"
+                  class="ml-1 rounded-md p-2 text-muted-foreground hover:text-foreground hover:bg-accent/60 transition-colors">
+            <svg id="icon-dark" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg id="icon-light" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="hidden"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           </button>
         </div>
       </div>
     </header>
 
-    <!-- ── HERO ───────────────────────────────────────────── -->
-    <section class="relative overflow-hidden py-24 sm:py-32">
-      <div class="mx-auto max-w-5xl px-4 text-center">
-        <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 text-xs text-muted-foreground">
+    <!-- ── HERO ── -->
+    <section class="relative py-24 sm:py-32 overflow-hidden">
+      <!-- subtle grid bg -->
+      <div aria-hidden class="pointer-events-none absolute inset-0 [background-size:40px_40px] [background-image:linear-gradient(to_right,hsl(var(--border)/0.5)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.5)_1px,transparent_1px)]"></div>
+      <div class="relative mx-auto max-w-4xl px-5 text-center">
+        <a href={APP_GITHUB_URL} target="_blank" rel="noreferrer"
+           class="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-background/70 px-4 py-1.5 text-xs text-muted-foreground backdrop-blur hover:border-foreground/30 transition-colors">
           <span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
-          local-first · open plugins · encrypted projects
-        </div>
-        <h1 class="text-5xl sm:text-6xl font-bold tracking-tight leading-tight">
-          Risk Intelligence<br />
-          <span style="color: hsl(var(--brand))">Platform</span>
+          Open source · local-first · v0.1.0
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+        <h1 class="text-5xl sm:text-7xl font-bold tracking-tight leading-[1.05]">
+          Risk investigations,<br />
+          <span class="relative">
+            <span style="color: hsl(var(--brand))">automated</span>
+          </span>
         </h1>
-        <p class="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground leading-relaxed">
-          OpenRisk automates risk investigations across PEP/sanctions databases, company registers,
-          adverse media, and more — all running locally on your machine.
+        <p class="mt-7 max-w-2xl mx-auto text-lg sm:text-xl text-muted-foreground leading-relaxed">
+          OpenRisk is a desktop app that connects PEP/sanctions databases, company registers, and adverse media
+          sources through a unified plugin ecosystem — all running locally, all encrypted.
         </p>
         <div class="mt-10 flex flex-wrap gap-3 justify-center">
-          <a
-            href={APP_GITHUB_URL}
-            target="_blank"
-            rel="noreferrer"
-            class="rounded-lg bg-primary text-primary-foreground px-6 py-3 text-sm font-semibold hover:opacity-90 transition-opacity"
-          >
-            Download OpenRisk ↓
+          <a href={APP_GITHUB_URL} target="_blank" rel="noreferrer"
+             class="inline-flex items-center gap-2 rounded-lg bg-primary text-primary-foreground px-6 py-3 text-sm font-semibold hover:opacity-90 transition-opacity shadow-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download for Desktop
           </a>
-          <a
-            href={DISCOVERY_URL}
-            target="_blank"
-            rel="noreferrer"
-            class="rounded-lg border border-border bg-background px-6 py-3 text-sm font-semibold hover:bg-accent transition-colors"
-          >
-            Browse Plugins →
+          <a href={DISCOVERY_URL} target="_blank" rel="noreferrer"
+             class="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3 text-sm font-semibold hover:bg-accent transition-colors">
+            Browse Plugins
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a
-            href={SDK_URL}
-            target="_blank"
-            rel="noreferrer"
-            class="rounded-lg border border-border bg-background px-6 py-3 text-sm font-semibold hover:bg-accent transition-colors"
-          >
-            Plugin SDK →
-          </a>
+        </div>
+        <!-- Stats -->
+        <div class="mt-16 flex flex-wrap justify-center gap-x-12 gap-y-4 text-sm text-muted-foreground border-t border-border/60 pt-10">
+          <div class="flex flex-col items-center gap-0.5">
+            <span class="text-2xl font-bold text-foreground">3</span>
+            <span>Official plugins</span>
+          </div>
+          <div class="flex flex-col items-center gap-0.5">
+            <span class="text-2xl font-bold text-foreground">100%</span>
+            <span>Local & encrypted</span>
+          </div>
+          <div class="flex flex-col items-center gap-0.5">
+            <span class="text-2xl font-bold text-foreground">Rust</span>
+            <span>+ React frontend</span>
+          </div>
+          <div class="flex flex-col items-center gap-0.5">
+            <span class="text-2xl font-bold text-foreground">Open</span>
+            <span>Source (MIT)</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ── PROBLEM ────────────────────────────────────────── -->
-    <section id="problem" class="py-20 border-t border-border">
-      <div class="mx-auto max-w-5xl px-4">
-        <div class="grid gap-12 lg:grid-cols-2 items-center">
-          <div>
-            <p class="mb-3 text-xs font-semibold uppercase tracking-widest" style="color: hsl(var(--brand))">Problem</p>
-            <h2 class="text-3xl font-bold tracking-tight mb-6">Manual investigation is slow</h2>
-            <ul class="flex flex-col gap-4 text-muted-foreground">
-              <li class="flex items-start gap-3">
-                <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40"></span>
-                <span>Analysts juggle <strong class="text-foreground">dozens of sources</strong> — sanctions lists, company registers, PEP databases, adverse media, local registries.</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40"></span>
-                <span>Integration happens <strong class="text-foreground">through Word and Excel</strong> — copy/paste from browser tabs, manual formatting.</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40"></span>
-                <span>No audit trail. No structure. <strong class="text-foreground">No automation.</strong></span>
-              </li>
-            </ul>
-          </div>
-          <!-- Sources diagram -->
-          <div class="relative flex flex-col gap-3 rounded-xl border border-border p-6 bg-muted/30">
-            <div class="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-widest">Analyst workflow today</div>
-            {[
-              { icon: "🏦", label: "Sanctions lists" },
-              { icon: "🏢", label: "Company registers" },
-              { icon: "👤", label: "PEP databases" },
-              { icon: "📰", label: "Adverse media" },
-              { icon: "📋", label: "Local registries" },
-            ].map((src) => (
+    <!-- ── HOW IT WORKS ── -->
+    <section id="how-it-works" class="py-20 border-t border-border">
+      <div class="mx-auto max-w-5xl px-5">
+        <div class="mb-12">
+          <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:hsl(var(--brand))">How it works</p>
+          <h2 class="text-3xl font-bold tracking-tight">From query to structured report</h2>
+        </div>
+        <div class="grid gap-0 sm:grid-cols-3 relative">
+          <!-- connector line -->
+          <div class="hidden sm:block absolute top-6 left-[calc(33.33%+1rem)] right-[calc(33.33%+1rem)] h-px bg-border"></div>
+          {[
+            {
+              step: "01",
+              title: "Create a project",
+              desc: "Open or create an encrypted project on your machine. Your data never leaves your disk.",
+            },
+            {
+              step: "02",
+              title: "Run a scan",
+              desc: "Enter a name, company, or URL. OpenRisk fires all installed plugins in parallel and collects typed results.",
+            },
+            {
+              step: "03",
+              title: "Review & export",
+              desc: "Explore structured entities — persons, organizations, risk topics — across all sources in one view.",
+            },
+          ].map((s) => (
+            <div class="relative flex flex-col gap-4 p-6 sm:pr-8">
               <div class="flex items-center gap-3">
-                <span class="text-xl">{src.icon}</span>
-                <span class="text-sm">{src.label}</span>
-                <span class="ml-auto text-xs text-muted-foreground font-mono">ctrl+c · ctrl+v</span>
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border-2 border-foreground text-sm font-bold bg-background">
+                  {s.step}
+                </span>
               </div>
-            ))}
-            <div class="mt-4 border-t border-border pt-4 flex items-center justify-center gap-4 text-sm text-muted-foreground">
-              <span>📄 Word</span>
-              <span>→</span>
-              <span>📊 Excel</span>
-              <span>→</span>
-              <span>😩 Report</span>
+              <h3 class="font-semibold text-base">{s.title}</h3>
+              <p class="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
 
-    <!-- ── DATA MODEL ─────────────────────────────────────── -->
+    <!-- ── FEATURES ── -->
+    <section id="features" class="py-20 border-t border-border bg-muted/20">
+      <div class="mx-auto max-w-5xl px-5">
+        <div class="mb-12">
+          <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:hsl(var(--brand))">Features</p>
+          <h2 class="text-3xl font-bold tracking-tight max-w-md">Everything in one place, nothing in the cloud</h2>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((f) => (
+            <div class="flex flex-col gap-3 rounded-xl border border-border bg-background p-5 hover:border-foreground/20 transition-colors">
+              <div class="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground/70">
+                <Fragment set:html={f.svg} />
+              </div>
+              <h3 class="font-semibold text-sm">{f.title}</h3>
+              <p class="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DATA MODEL ── -->
     <section id="data-model" class="py-20 border-t border-border">
-      <div class="mx-auto max-w-5xl px-4">
-        <div class="grid gap-12 lg:grid-cols-2 items-start">
+      <div class="mx-auto max-w-5xl px-5">
+        <div class="grid gap-12 lg:grid-cols-[1fr_1.1fr] items-start">
           <div>
-            <p class="mb-3 text-xs font-semibold uppercase tracking-widest" style="color: hsl(var(--brand))">Data Model</p>
-            <h2 class="text-3xl font-bold tracking-tight mb-6">Common language for results</h2>
-            <p class="text-muted-foreground mb-6 leading-relaxed">
-              Every plugin speaks the same structured format. Results are typed entities — person, organization, risk topic, sanction — with normalized props and raw extra data from the source.
+            <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:hsl(var(--brand))">Unified data model</p>
+            <h2 class="text-3xl font-bold tracking-tight mb-5">One format, every source</h2>
+            <p class="text-muted-foreground mb-8 leading-relaxed">
+              Every plugin outputs the same typed entity format. Mix results from sanctions databases,
+              company registers, and adverse media without any glue code.
             </p>
             <div class="flex flex-col gap-3">
               {[
-                { key: "type", desc: "What kind of result — entity, annotation, metric…" },
-                { key: "entity", desc: "Semantic type: person, organization, riskTopic…" },
-                { key: "props", desc: "Normalized fields with stable, typed keys." },
-                { key: "extra", desc: "Raw source data preserved as-is." },
-              ].map((item) => (
-                <div class="flex items-start gap-3">
-                  <code class="shrink-0 rounded bg-muted px-2 py-0.5 text-xs font-mono mt-0.5">{item.key}</code>
-                  <span class="text-sm text-muted-foreground">{item.desc}</span>
+                { key: "person",       color: "bg-blue-500/10 text-blue-700 dark:text-blue-400",   desc: "Name, birth date, nationality, identifiers" },
+                { key: "organization", color: "bg-purple-500/10 text-purple-700 dark:text-purple-400", desc: "Company name, registration, officers" },
+                { key: "riskTopic",    color: "bg-red-500/10 text-red-700 dark:text-red-400",      desc: "Adverse media topics with source URLs" },
+                { key: "socialProfile",color: "bg-green-500/10 text-green-700 dark:text-green-400", desc: "Social media accounts and profiles" },
+              ].map((e) => (
+                <div class="flex items-center gap-3">
+                  <span class={"shrink-0 rounded-md px-2 py-1 text-xs font-mono font-semibold " + e.color}>{e.key}</span>
+                  <span class="text-sm text-muted-foreground">{e.desc}</span>
                 </div>
               ))}
             </div>
-            <div class="mt-6">
-              <a
-                href={SDK_URL + "/entities/"}
-                target="_blank"
-                rel="noreferrer"
-                class="text-sm font-medium hover:underline"
-                style="color: hsl(var(--brand))"
-              >
-                Browse all entity types in the SDK →
-              </a>
-            </div>
+            <a href={SDK_URL + "/entities/"} target="_blank" rel="noreferrer"
+               class="mt-8 inline-flex items-center gap-1.5 text-sm font-medium hover:underline" style="color:hsl(var(--brand))">
+              Browse all entity types
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
           </div>
           <!-- Code block -->
-          <div class="rounded-xl border border-border overflow-hidden">
-            <div class="flex items-center gap-2 border-b border-border bg-muted/50 px-4 py-2.5">
-              <div class="h-2.5 w-2.5 rounded-full bg-red-400"></div>
-              <div class="h-2.5 w-2.5 rounded-full bg-yellow-400"></div>
-              <div class="h-2.5 w-2.5 rounded-full bg-green-400"></div>
-              <span class="ml-2 text-xs font-mono text-muted-foreground">plugin-output.json</span>
+          <div class="rounded-xl overflow-hidden border border-border shadow-md">
+            <div class="flex items-center gap-1.5 border-b border-border bg-muted/60 px-4 py-2.5">
+              <span class="h-2.5 w-2.5 rounded-full bg-red-400/80"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-yellow-400/80"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-green-400/80"></span>
+              <span class="ml-3 text-xs font-mono text-muted-foreground">plugin-output.json</span>
             </div>
-            <pre class="p-5 text-xs leading-relaxed overflow-x-auto bg-[hsl(224,71.4%,4.1%)] text-[hsl(210,20%,95%)]"><code>{`{
+            <pre class="p-5 text-[0.72rem] leading-relaxed overflow-x-auto bg-[hsl(224,71.4%,3%)] text-[hsl(210,20%,88%)] font-mono"><code
+>{`{
   "dataModelVersion": "v1",
   "results": [
     {
@@ -262,6 +294,14 @@ const integrations = [
         "source": "OpenCorporates",
         "confidence": 0.91
       }
+    },
+    {
+      "type": "entity",
+      "entity": "riskTopic",
+      "props": {
+        "topic": "Fraud",
+        "url": "https://..."
+      }
     }
   ]
 }`}</code></pre>
@@ -270,279 +310,221 @@ const integrations = [
       </div>
     </section>
 
-    <!-- ── PLUGIN MODEL ───────────────────────────────────── -->
-    <section id="plugins" class="py-20 border-t border-border" style="background: hsl(var(--muted)/30%)">
-      <div class="mx-auto max-w-5xl px-4">
-        <div class="mb-12 text-center">
-          <p class="mb-3 text-xs font-semibold uppercase tracking-widest" style="color: hsl(var(--brand))">Plugin Model</p>
-          <h2 class="text-3xl font-bold tracking-tight">Plugin as a function</h2>
-          <p class="mt-4 max-w-xl mx-auto text-muted-foreground leading-relaxed">
-            A plugin is a TypeScript file with two inputs and one output. No framework. No dependencies. Just a function that calls an API and normalizes the result.
+    <!-- ── PLUGIN MODEL ── -->
+    <section id="plugins" class="py-20 border-t border-border bg-muted/20">
+      <div class="mx-auto max-w-5xl px-5">
+        <div class="grid gap-12 lg:grid-cols-[1.1fr_1fr] items-start">
+          <!-- Code -->
+          <div class="rounded-xl overflow-hidden border border-border shadow-md">
+            <div class="flex items-center gap-1.5 border-b border-border bg-muted/60 px-4 py-2.5">
+              <span class="h-2.5 w-2.5 rounded-full bg-red-400/80"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-yellow-400/80"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-green-400/80"></span>
+              <span class="ml-3 text-xs font-mono text-muted-foreground">index.ts</span>
+            </div>
+            <pre class="p-5 text-[0.72rem] leading-relaxed overflow-x-auto bg-[hsl(224,71.4%,3%)] font-mono"><code
+><span class="text-[hsl(210,20%,55%)]">// input: search term from the user</span>
+<span class="text-[hsl(210,20%,55%)]">// settings: configured in the OpenRisk UI</span>
+<span class="text-[hsl(207,61%,75%)]">export async function</span> <span class="text-[hsl(39,67%,69%)]">run</span><span class="text-[hsl(210,20%,88%)]">(</span>
+<span class="text-[hsl(210,20%,88%)]">  input</span><span class="text-[hsl(210,20%,55%)]">: string</span><span class="text-[hsl(210,20%,88%)]">,</span>
+<span class="text-[hsl(210,20%,88%)]">  settings</span><span class="text-[hsl(210,20%,55%)]">: Settings</span>
+<span class="text-[hsl(210,20%,88%)]">) {</span>
+<span class="text-[hsl(210,20%,88%)]">  </span><span class="text-[hsl(207,61%,75%)]">const</span> <span class="text-[hsl(210,20%,88%)]">raw = </span><span class="text-[hsl(207,61%,75%)]">await</span> <span class="text-[hsl(210,20%,88%)]">myApi.search(</span>
+<span class="text-[hsl(210,20%,88%)]">    input, settings.apiKey</span>
+<span class="text-[hsl(210,20%,88%)]">  );</span>
+<span class="text-[hsl(207,61%,75%)]">  return</span> <span class="text-[hsl(210,20%,88%)]">raw.map((r) => ({</span>
+<span class="text-[hsl(210,20%,88%)]">    type: </span><span class="text-[hsl(140,50%,65%)]">"entity"</span><span class="text-[hsl(210,20%,88%)]">,</span>
+<span class="text-[hsl(210,20%,88%)]">    entity: </span><span class="text-[hsl(140,50%,65%)]">"person"</span><span class="text-[hsl(210,20%,88%)]">,</span>
+<span class="text-[hsl(210,20%,88%)]">    props: &#123; name: r.fullName &#125;,</span>
+<span class="text-[hsl(210,20%,88%)]">    extra: &#123; score: r.confidence &#125;,</span>
+<span class="text-[hsl(210,20%,88%)]">  }));</span>
+<span class="text-[hsl(210,20%,88%)]">}</span></code></pre>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:hsl(var(--brand))">Plugin model</p>
+            <h2 class="text-3xl font-bold tracking-tight mb-5">A plugin is just a function</h2>
+            <p class="text-muted-foreground mb-8 leading-relaxed">
+              No framework. No boilerplate. Write a TypeScript function that calls an API
+              and returns normalized entities. That's it.
+            </p>
+            <ul class="flex flex-col gap-4">
+              {[
+                { label: "TypeScript/JavaScript", desc: "Runs in an isolated Deno runtime with HTTP + filesystem access." },
+                { label: "Typed output",          desc: "Return entities using the OpenRisk data model — validated on load." },
+                { label: "Settings UI",           desc: "Declare settings in plugin.json; OpenRisk renders the config form." },
+                { label: "Metrics",               desc: "Track API credits, call counts, and custom values at runtime." },
+              ].map((item) => (
+                <li class="flex items-start gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" class="mt-0.5 shrink-0" style="color:hsl(var(--brand))"><polyline points="20 6 9 17 4 12"/></svg>
+                  <div>
+                    <span class="text-sm font-semibold">{item.label}</span>
+                    <span class="text-sm text-muted-foreground"> — {item.desc}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <a href={SDK_URL} target="_blank" rel="noreferrer"
+               class="mt-8 inline-flex items-center gap-1.5 text-sm font-medium hover:underline" style="color:hsl(var(--brand))">
+              Read the Plugin SDK docs
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── INTEGRATIONS ── -->
+    <section id="integrations" class="py-20 border-t border-border">
+      <div class="mx-auto max-w-5xl px-5">
+        <div class="mb-12">
+          <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:hsl(var(--brand))">Integrations</p>
+          <h2 class="text-3xl font-bold tracking-tight">Official plugins</h2>
+          <p class="mt-3 text-muted-foreground max-w-xl">
+            Ready-to-install plugins for the leading risk intelligence and corporate data providers.
           </p>
         </div>
-        <div class="grid gap-6 sm:grid-cols-3 mb-10">
-          {[
-            { label: "input", icon: "→", desc: "Search term, entity name, or structured query from the user." },
-            { label: "settings", icon: "⚙", desc: "Per-plugin configuration: API keys, tokens, preferences." },
-            { label: "data model", icon: "✓", desc: "Typed entity array returned to OpenRisk for display and storage." },
-          ].map((item) => (
-            <div class="rounded-xl border border-border bg-background p-5">
-              <div class="mb-3 flex items-center gap-2">
-                <span class="text-lg">{item.icon}</span>
-                <code class="text-sm font-semibold font-mono">{item.label}</code>
+        <div class="grid gap-4 sm:grid-cols-3">
+          {integrations.map((p) => (
+            <a href={DISCOVERY_URL + "/plugins/" + p.id + "/"} target="_blank" rel="noreferrer"
+               class="group flex flex-col gap-4 rounded-xl border border-border bg-background p-5 hover:border-foreground/20 hover:shadow-sm transition-all">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <div class="font-semibold text-sm">{p.name}</div>
+                  <div class="text-xs text-muted-foreground font-mono mt-0.5">{p.id}</div>
+                </div>
+                <span class="shrink-0 rounded-md border border-border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+                  {p.category}
+                </span>
               </div>
-              <p class="text-sm text-muted-foreground">{item.desc}</p>
-            </div>
+              <p class="text-sm text-muted-foreground leading-snug flex-1">{p.desc}</p>
+              <div class="flex flex-wrap gap-1.5 mt-auto">
+                {p.entrypoints.map((e) => (
+                  <span class="rounded bg-muted px-2 py-0.5 text-[11px] font-mono text-muted-foreground">{e}</span>
+                ))}
+              </div>
+              <div class="flex items-center gap-1 text-xs font-medium mt-1" style="color:hsl(var(--brand))">
+                View in registry
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="group-hover:translate-x-0.5 transition-transform"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </a>
           ))}
         </div>
-        <!-- Code snippet -->
-        <div class="rounded-xl border border-border overflow-hidden">
-          <div class="flex items-center gap-2 border-b border-border bg-muted/50 px-4 py-2.5">
-            <div class="h-2.5 w-2.5 rounded-full bg-red-400"></div>
-            <div class="h-2.5 w-2.5 rounded-full bg-yellow-400"></div>
-            <div class="h-2.5 w-2.5 rounded-full bg-green-400"></div>
-            <span class="ml-2 text-xs font-mono text-muted-foreground">index.ts</span>
-          </div>
-          <pre class="p-5 text-xs leading-relaxed overflow-x-auto bg-[hsl(224,71.4%,4.1%)] text-[hsl(210,20%,95%)]"><code>{`export async function run(input: string, settings: Settings) {
-  const raw = await mySource.search(input, settings.apiKey);
-  return normalizeToOpenRisk(raw);
-}
-
-function normalizeToOpenRisk(raw: SourceResult[]) {
-  return raw.map((r) => ({
-    type: "entity",
-    entity: "person",
-    props: { name: r.fullName, birthDate: r.dob },
-    extra: { sourceId: r.id, score: r.confidence },
-  }));
-}`}</code></pre>
-        </div>
-        <div class="mt-6 text-center">
-          <a
-            href={SDK_URL}
-            target="_blank"
-            rel="noreferrer"
-            class="text-sm font-medium hover:underline"
-            style="color: hsl(var(--brand))"
-          >
-            Read the Plugin SDK docs →
-          </a>
-        </div>
       </div>
     </section>
 
-    <!-- ── INTEGRATIONS ───────────────────────────────────── -->
-    <section id="integrations" class="py-20 border-t border-border">
-      <div class="mx-auto max-w-5xl px-4">
-        <div class="mb-12 text-center">
-          <p class="mb-3 text-xs font-semibold uppercase tracking-widest" style="color: hsl(var(--brand))">Integrations</p>
-          <h2 class="text-3xl font-bold tracking-tight">Connected to existing sources</h2>
-          <p class="mt-4 max-w-xl mx-auto text-muted-foreground leading-relaxed">
-            Official plugins connect to the leading risk intelligence and corporate data providers.
-          </p>
-        </div>
-        <div class="grid gap-6 sm:grid-cols-3">
-          <!-- Adversea -->
-          <div class="rounded-xl border border-border bg-[hsl(224,71.4%,4.1%)] text-white p-6 flex flex-col gap-3">
-            <div class="text-2xl font-bold tracking-tight text-teal-400">adversea</div>
-            <p class="text-sm text-white/70 leading-snug flex-1">
-              PEP & sanctions screening, adverse media topic reports, and URL-level unit analysis.
-            </p>
-            <div class="text-xs font-semibold text-teal-400 uppercase tracking-widest">risk screening</div>
-          </div>
-          <!-- OpenCorporates -->
-          <div class="rounded-xl border border-border bg-background p-6 flex flex-col gap-3">
-            <div class="text-2xl font-bold tracking-tight">
-              <span class="text-red-600">open</span>corporates
-            </div>
-            <p class="text-sm text-muted-foreground leading-snug flex-1">
-              Search companies and officers across the world's largest open company database.
-            </p>
-            <div class="text-xs font-semibold text-muted-foreground uppercase tracking-widest">company data</div>
-          </div>
-          <!-- OpenSanctions -->
-          <div class="rounded-xl border border-border bg-background p-6 flex flex-col gap-3">
-            <div class="text-2xl font-bold tracking-tight text-blue-600">
-              open<span class="text-foreground">sanctions</span>
-            </div>
-            <p class="text-sm text-muted-foreground leading-snug flex-1">
-              Match persons and entities against consolidated global watchlists with scoring metadata.
-            </p>
-            <div class="text-xs font-semibold text-muted-foreground uppercase tracking-widest">watchlist screening</div>
-          </div>
-        </div>
-        <div class="mt-8 text-center">
-          <a
-            href={DISCOVERY_URL}
-            target="_blank"
-            rel="noreferrer"
-            class="text-sm font-medium hover:underline"
-            style="color: hsl(var(--brand))"
-          >
-            All plugins in the registry →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── ECOSYSTEM ──────────────────────────────────────── -->
-    <section id="ecosystem" class="py-20 border-t border-border" style="background: hsl(var(--muted)/30%)">
-      <div class="mx-auto max-w-5xl px-4">
-        <div class="mb-12 text-center">
-          <p class="mb-3 text-xs font-semibold uppercase tracking-widest" style="color: hsl(var(--brand))">Developer Ecosystem</p>
+    <!-- ── DEVELOPERS ── -->
+    <section id="developers" class="py-20 border-t border-border bg-muted/20">
+      <div class="mx-auto max-w-5xl px-5">
+        <div class="mb-12">
+          <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color:hsl(var(--brand))">Developer ecosystem</p>
           <h2 class="text-3xl font-bold tracking-tight">Build your own plugin</h2>
-          <p class="mt-4 max-w-xl mx-auto text-muted-foreground leading-relaxed">
-            The plugin SDK provides everything you need: typed data model, manifest reference, live validator, and template examples.
+          <p class="mt-3 text-muted-foreground max-w-xl">
+            The SDK provides everything you need: typed data model, manifest reference, live validator, and annotated examples.
           </p>
         </div>
-        <div class="grid gap-6 sm:grid-cols-3">
+        <div class="grid gap-4 sm:grid-cols-3">
           {[
             {
-              kicker: "DOCS",
-              title: "Model, Manifest & Workflow",
+              icon: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
+              kicker: "Docs",
+              title: "Model & Manifest",
               desc: "Complete reference for the data model, plugin manifest schema, and development workflow.",
               href: SDK_URL,
-              label: "Open SDK Docs →",
+              cta: "Open SDK docs",
             },
             {
-              kicker: "EXAMPLES",
-              title: "Plugin Templates",
-              desc: "Annotated plugin templates you can copy and adapt as a starting point.",
+              icon: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+              kicker: "Examples",
+              title: "Plugin templates",
+              desc: "Annotated TypeScript templates you can copy and adapt as a starting point for your plugin.",
               href: SDK_URL + "/manifest/",
-              label: "View Templates →",
+              cta: "Browse templates",
             },
             {
-              kicker: "VALIDATION",
-              title: "Check Before Shipping",
+              icon: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>`,
+              kicker: "Validation",
+              title: "Output validator",
               desc: "Paste your plugin output JSON and validate it against the data model schema in the browser.",
               href: SDK_URL + "/validate/",
-              label: "Open Validator →",
+              cta: "Open validator",
             },
           ].map((card) => (
-            <div class="rounded-xl border border-border bg-background p-6 flex flex-col gap-3">
-              <p class="text-xs font-semibold uppercase tracking-widest" style="color: hsl(var(--brand))">{card.kicker}</p>
-              <h3 class="font-semibold text-base">{card.title}</h3>
+            <div class="flex flex-col gap-4 rounded-xl border border-border bg-background p-5">
+              <div class="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground/70">
+                <Fragment set:html={card.icon} />
+              </div>
+              <div>
+                <p class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">{card.kicker}</p>
+                <h3 class="font-semibold text-sm">{card.title}</h3>
+              </div>
               <p class="text-sm text-muted-foreground leading-snug flex-1">{card.desc}</p>
-              <a href={card.href} target="_blank" rel="noreferrer" class="text-sm font-medium hover:underline mt-auto" style="color: hsl(var(--brand))">{card.label}</a>
+              <a href={card.href} target="_blank" rel="noreferrer"
+                 class="inline-flex items-center gap-1.5 text-sm font-medium hover:underline mt-auto" style="color:hsl(var(--brand))">
+                {card.cta}
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- ── PRINCIPLES ─────────────────────────────────────── -->
-    <section id="principles" class="py-20 border-t border-border">
-      <div class="mx-auto max-w-5xl px-4">
-        <div class="grid gap-12 lg:grid-cols-2 items-center">
-          <div>
-            <p class="mb-3 text-xs font-semibold uppercase tracking-widest" style="color: hsl(var(--brand))">Principles</p>
-            <h2 class="text-3xl font-bold tracking-tight mb-6">Platform features</h2>
-            <div class="flex flex-col gap-5">
-              {[
-                {
-                  icon: "💾",
-                  title: "Local-first workflow",
-                  desc: "All data stays on your machine. Projects are SQLite databases stored where you choose.",
-                },
-                {
-                  icon: "🔒",
-                  title: "Encrypted projects",
-                  desc: "Project databases are encrypted with SQLCipher. Your investigations stay private.",
-                },
-                {
-                  icon: "🔌",
-                  title: "Plugins via UI",
-                  desc: "Install, configure, and run plugins directly from the OpenRisk interface — no CLI needed.",
-                },
-              ].map((item) => (
-                <div class="flex items-start gap-4">
-                  <span class="text-2xl shrink-0 mt-0.5">{item.icon}</span>
-                  <div>
-                    <div class="font-semibold text-sm mb-1">{item.title}</div>
-                    <p class="text-sm text-muted-foreground">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <!-- App screenshot placeholder -->
-          <div class="rounded-xl border border-border bg-muted/30 p-8 flex items-center justify-center aspect-video">
-            <div class="text-center text-muted-foreground">
-              <div class="text-4xl mb-3">⬡</div>
-              <div class="text-sm font-medium">OpenRisk App</div>
-              <div class="text-xs mt-1">Tauri · Rust · React</div>
-              <a
-                href={APP_GITHUB_URL}
-                target="_blank"
-                rel="noreferrer"
-                class="mt-4 inline-block text-xs font-medium hover:underline"
-                style="color: hsl(var(--brand))"
-              >
-                View on GitHub ↗
-              </a>
-            </div>
+    <!-- ── CTA ── -->
+    <section class="py-24 border-t border-border">
+      <div class="mx-auto max-w-3xl px-5 text-center">
+        <div class="rounded-2xl border border-border bg-muted/30 px-8 py-12">
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Start investigating</h2>
+          <p class="text-muted-foreground mb-8 max-w-md mx-auto leading-relaxed">
+            Download OpenRisk, install a plugin, and run your first scan in minutes.
+          </p>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <a href={APP_GITHUB_URL} target="_blank" rel="noreferrer"
+               class="inline-flex items-center gap-2 rounded-lg bg-primary text-primary-foreground px-6 py-3 text-sm font-semibold hover:opacity-90 transition-opacity shadow-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download OpenRisk
+            </a>
+            <a href={DISCOVERY_URL} target="_blank" rel="noreferrer"
+               class="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3 text-sm font-semibold hover:bg-accent transition-colors">
+              Browse Plugins
+            </a>
+            <a href={SDK_URL} target="_blank" rel="noreferrer"
+               class="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3 text-sm font-semibold hover:bg-accent transition-colors">
+              Plugin SDK
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── CTA ────────────────────────────────────────────── -->
-    <section class="py-24 border-t border-border text-center">
-      <div class="mx-auto max-w-2xl px-4">
-        <h2 class="text-3xl font-bold tracking-tight mb-4">Ready to start?</h2>
-        <p class="text-muted-foreground mb-8 leading-relaxed">
-          Download OpenRisk, explore plugins, or build your own integration using the SDK.
-        </p>
-        <div class="flex flex-wrap gap-4 justify-center">
-          <a
-            href={APP_GITHUB_URL}
-            target="_blank"
-            rel="noreferrer"
-            class="rounded-lg bg-primary text-primary-foreground px-6 py-3 text-sm font-semibold hover:opacity-90 transition-opacity"
-          >
-            Download OpenRisk ↓
-          </a>
-          <a
-            href={DISCOVERY_URL}
-            target="_blank"
-            rel="noreferrer"
-            class="rounded-lg border border-border bg-background px-6 py-3 text-sm font-semibold hover:bg-accent transition-colors"
-          >
-            Browse Plugins
-          </a>
-          <a
-            href={SDK_URL}
-            target="_blank"
-            rel="noreferrer"
-            class="rounded-lg border border-border bg-background px-6 py-3 text-sm font-semibold hover:bg-accent transition-colors"
-          >
-            Plugin SDK
-          </a>
+    <!-- ── FOOTER ── -->
+    <footer class="border-t border-border py-8 text-center text-xs text-muted-foreground">
+      <div class="mx-auto max-w-6xl px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2 font-semibold text-sm text-foreground">
+          <span>⬡</span> OpenRisk
         </div>
-      </div>
-    </section>
-
-    <!-- ── FOOTER ─────────────────────────────────────────── -->
-    <footer class="border-t border-border py-10 text-center text-xs text-muted-foreground">
-      <div class="flex items-center justify-center gap-5 flex-wrap">
+        <div class="flex items-center gap-5">
+          <a href={APP_GITHUB_URL} target="_blank" rel="noreferrer" class="hover:text-foreground transition-colors">GitHub</a>
+          <a href={SDK_URL} target="_blank" rel="noreferrer" class="hover:text-foreground transition-colors">Plugin SDK</a>
+          <a href={DISCOVERY_URL} target="_blank" rel="noreferrer" class="hover:text-foreground transition-colors">Plugin Registry</a>
+        </div>
         <span>© 2026 OpenRisk Platform</span>
-        <a href={APP_GITHUB_URL} target="_blank" rel="noreferrer" class="hover:text-foreground transition-colors">GitHub</a>
-        <a href={SDK_URL} target="_blank" rel="noreferrer" class="hover:text-foreground transition-colors">Plugin SDK</a>
-        <a href={DISCOVERY_URL} target="_blank" rel="noreferrer" class="hover:text-foreground transition-colors">Plugin Registry</a>
       </div>
     </footer>
 
     <script is:inline>
       const btn = document.getElementById("theme-toggle");
-      const icon = document.getElementById("theme-icon");
-      function syncIcon() {
-        icon.textContent = document.documentElement.classList.contains("dark") ? "☀" : "☾";
+      const iconDark = document.getElementById("icon-dark");
+      const iconLight = document.getElementById("icon-light");
+      function syncIcons() {
+        const dark = document.documentElement.classList.contains("dark");
+        iconDark.classList.toggle("hidden", dark);
+        iconLight.classList.toggle("hidden", !dark);
       }
-      syncIcon();
+      syncIcons();
       btn.addEventListener("click", () => {
         const isDark = document.documentElement.classList.toggle("dark");
         localStorage.setItem("theme", isDark ? "dark" : "light");
-        syncIcon();
+        syncIcons();
       });
     </script>
   </body>

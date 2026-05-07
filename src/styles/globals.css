@@ -4,29 +4,27 @@
 
 @layer base {
     :root {
-        /* Warm cream palette — matches presentation background */
-        --background: 40 33% 97%;
-        --foreground: 20 14% 12%;
-        --card: 40 33% 97%;
-        --card-foreground: 20 14% 12%;
-        --popover: 40 33% 97%;
-        --popover-foreground: 20 14% 12%;
-        --primary: 20 14% 12%;
-        --primary-foreground: 40 33% 97%;
-        --secondary: 38 25% 92%;
-        --secondary-foreground: 20 14% 12%;
-        --muted: 38 25% 92%;
-        --muted-foreground: 20 8% 44%;
-        --accent: 38 25% 92%;
-        --accent-foreground: 20 14% 12%;
-        --destructive: 0 84% 60%;
-        --destructive-foreground: 40 33% 97%;
-        --border: 38 20% 87%;
-        --input: 38 20% 87%;
-        --ring: 20 14% 12%;
-        --radius: 0.6rem;
+        --background: 0 0% 100%;
+        --foreground: 224 71.4% 4.1%;
+        --card: 0 0% 100%;
+        --card-foreground: 224 71.4% 4.1%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 224 71.4% 4.1%;
+        --primary: 220.9 39.3% 11%;
+        --primary-foreground: 210 20% 98%;
+        --secondary: 220 14.3% 95.9%;
+        --secondary-foreground: 220.9 39.3% 11%;
+        --muted: 220 14.3% 95.9%;
+        --muted-foreground: 220 8.9% 46.1%;
+        --accent: 220 14.3% 95.9%;
+        --accent-foreground: 220.9 39.3% 11%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 20% 98%;
+        --border: 220 13% 91%;
+        --input: 220 13% 91%;
+        --ring: 224 71.4% 4.1%;
+        --radius: 0.5rem;
 
-        /* Brand orange from presentation */
         --brand: 22 82% 46%;
         --brand-soft: 30 75% 94%;
     }
